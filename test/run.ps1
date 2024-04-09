@@ -17,8 +17,10 @@ Write-Host "Request is of type '$($Request.GetType().FullName)'."
 Write-Host 'PowerShell HTTP trigger function processed a request.'
 
 $body = @{
-    request         = $Request
-    triggerMetadata = $TriggerMetadata
+    request             = $Request
+    requestType         = $Request.GetType().FullName
+    triggerMetadata     = $TriggerMetadata
+    triggerMetadataType = $TriggerMetadata.GetType().FullName
 }
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
