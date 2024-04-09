@@ -21,10 +21,11 @@ jobs:
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v4
-      
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
+          auth-type: IDENTITY
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_07AE5B63508C43E0B8FF3B99772E5961 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_377937AB27134D0EAA4B8537065DA147 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A6370CF3EC974663880DA7C6A572D2EC }}
@@ -36,4 +37,3 @@ jobs:
           app-name: 'psmodulegithubapp'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          
