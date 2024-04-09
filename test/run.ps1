@@ -4,14 +4,15 @@ using namespace System.Net
 param(
     # HttpRequestContext object containing the request data.
     [Parameter()]
-    [HttpRequestContext] $Request,
+    # [HttpRequestContext] $Request,
+    $Request,
 
     # Trigger metadata object containing the metadata for the trigger.
     [Parameter()]
-    $TriggerMetadata
+    [hashtable] $TriggerMetadata
 )
 
-Write-Host "TriggerMetadata is of type '$($TriggerMetadata.GetType().FullName)'."
+Write-Host "Request is of type '$($Request.GetType().FullName)'."
 
 Write-Host 'PowerShell HTTP trigger function processed a request.'
 
