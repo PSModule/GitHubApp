@@ -2,7 +2,6 @@
     "scriptFile": "run.ps1",
     "bindings": [
         {
-            "authLevel": "anonymous",
             "type": "httpTrigger",
             "webHookType": "github",
             "direction": "in",
