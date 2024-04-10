@@ -14,13 +14,11 @@ param(
 
 $user = $Request.Body.sender.login
 $action = $Request.Body.action
-$starred = $Request.Body.starred_at
 $event = $Request.Headers.'x-github-event'
 $repo = $Request.Body.repository.full_name
 
 Write-Host "User: $user"
 Write-Host "Action: $action"
-Write-Host "Starred: $starred"
 Write-Host "Event: $event"
 Write-Host "Repo: $repo"
 
