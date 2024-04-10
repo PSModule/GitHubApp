@@ -14,16 +14,16 @@ param(
 
 $user = $Request.Body.sender.login
 $action = $Request.Body.action
-$event = $Request.Headers.'x-github-event'
+$githubEvent = $Request.Headers.'x-github-event'
 $repo = $Request.Body.repository.full_name
 
-Write-Host "User: $user"
-Write-Host "Action: $action"
-Write-Host "Event: $event"
-Write-Host "Repo: $repo"
+Write-Information "User: $user"
+Write-Information "Action: $action"
+Write-Information "Event: $githubEvent"
+Write-Information "Repo: $repo"
 
 Invoke-RestMethod -Uri $env:DISCORD_WEBHOOK -Method Post -Body (@{
-        content = "$user just $action $event on $repo"
+        content = "$user just $action $githubEvent on $repo"
     } | ConvertTo-Json) -ContentType 'application/json'
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
