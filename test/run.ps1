@@ -22,6 +22,10 @@ Write-Host "Action: $action"
 Write-Host "Event: $event"
 Write-Host "Repo: $repo"
 
+Invoke-RestMethod -Uri $env:DISCORD_WEBHOOK -Method Post -Body (@{
+        content = "$user just $action $event on $repo"
+    } | ConvertTo-Json) -ContentType 'application/json'
+
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value (
     [HttpResponseContext]@{
