@@ -5,17 +5,24 @@ param(
     # HttpRequestContext object containing the request data.
     [Parameter()]
     # [HttpRequestContext] $Request,
-    $Request,
+    [HttpRequestContext] $Request,
 
     # Trigger metadata object containing the metadata for the trigger.
     [Parameter()]
     [hashtable] $TriggerMetadata
 )
 
-Write-Host "Request is of type '$($Request.GetType().FullName)'."
-Write-Host ($Request | ConvertTo-Json | Out-String)
+$user = $Request.Body.sender.login
+$action = $Request.Body.action
+$starred = $Request.Body.starred_at
+$event = $Request.Headers.'x-github-event'
+$repo = $Request.Body.repository.full_name
 
-Write-Host "GitHub module version: " + (Get-Module -Name GitHub -ListAvailable).Version
+Write-Host "User: $user"
+Write-Host "Action: $action"
+Write-Host "Starred: $starred"
+Write-Host "Event: $event"
+Write-Host "Repo: $repo"
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value (
