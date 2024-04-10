@@ -13,20 +13,13 @@ param(
 )
 
 Write-Host "Request is of type '$($Request.GetType().FullName)'."
+Write-Host ($Request | ConvertTo-Json | Out-String)
 
-Write-Host 'PowerShell HTTP trigger function processed a request.'
-
-$body = @{
-    request             = $Request
-    requestType         = $Request.GetType().FullName
-    triggerMetadata     = $TriggerMetadata
-    triggerMetadataType = $TriggerMetadata.GetType().FullName
-}
+Write-Host "GitHub module version: " + (Get-Module -Name GitHub -ListAvailable).Version
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value (
     [HttpResponseContext]@{
         StatusCode = [HttpStatusCode]::OK
-        Body       = $body
     }
 )
