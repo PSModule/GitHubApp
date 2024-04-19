@@ -29,10 +29,10 @@ switch ($githubEvent) {
                 $body = @{
                     content = @"
 🌟 A new security advisory has been published:
-- GHSA ID: $($Request.Body.security_advisory.ghsa_id)
-- CVE ID: $($Request.Body.security_advisory.cve_id)
-- Summary: $($Request.Body.security_advisory.summary)
-- Severity: $($Request.Body.security_advisory.severity)
+  - GHSA ID: $($Request.Body.security_advisory.ghsa_id)
+  - CVE ID: $($Request.Body.security_advisory.cve_id)
+  - Summary: $($Request.Body.security_advisory.summary)
+  - Severity: $($Request.Body.security_advisory.severity)
 "@
                 }
             }
@@ -40,10 +40,10 @@ switch ($githubEvent) {
                 $body = @{
                     content = @"
 ⚠️ A security advisory has been updated:
-- GHSA ID: $($Request.Body.security_advisory.ghsa_id)
-- CVE ID: $($Request.Body.security_advisory.cve_id)
-- Summary: $($Request.Body.security_advisory.summary)
-- Severity: $($Request.Body.security_advisory.severity)
+  - GHSA ID: $($Request.Body.security_advisory.ghsa_id)
+  - CVE ID: $($Request.Body.security_advisory.cve_id)
+  - Summary: $($Request.Body.security_advisory.summary)
+  - Severity: $($Request.Body.security_advisory.severity)
 "@
                 }
             }
@@ -51,10 +51,10 @@ switch ($githubEvent) {
                 $body = @{
                     content = @"
 ❌ A security advisory has been withdrawn:
-- GHSA ID: $($Request.Body.security_advisory.ghsa_id)
-- CVE ID: $($Request.Body.security_advisory.cve_id)
-- Summary: $($Request.Body.security_advisory.summary)
-- Severity: $($Request.Body.security_advisory.severity)
+  - GHSA ID: $($Request.Body.security_advisory.ghsa_id)
+  - CVE ID: $($Request.Body.security_advisory.cve_id)
+  - Summary: $($Request.Body.security_advisory.summary)
+  - Severity: $($Request.Body.security_advisory.severity)
 "@
                 }
             }
@@ -64,7 +64,7 @@ switch ($githubEvent) {
         $body = @{
             content = @"
 ### $githubEvent
-[$user]($($Request.Body.sender.url)) just $action $githubEvent on [$repo]($($Request.Body.repository.html_url))
+[$user]($($Request.Body.sender.html_url)) just $action a $githubEvent on [$repo]($($Request.Body.repository.html_url))
 "@
         }
     }
