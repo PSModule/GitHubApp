@@ -62,7 +62,10 @@ switch ($githubEvent) {
     }
     default {
         $body = @{
-            content = "$user just $action $githubEvent on $repo"
+            content = @"
+### $githubEvent
+[$user]($($Request.Body.sender.url)) just $action $githubEvent on [$repo]($($Request.Body.repository.html_url))
+"@
         }
     }
 }
