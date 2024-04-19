@@ -66,6 +66,7 @@ switch ($githubEvent) {
 ### $githubEvent
 [$user]($($Request.Body.sender.html_url)) just $action a $githubEvent on [$repo]($($Request.Body.repository.html_url))
 "@
+            embeds  = @()
         }
     }
 }
