@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'app' # set this to the path to your web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
 jobs:
   deploy:
@@ -22,13 +22,13 @@ jobs:
     steps:
       - name: 'Checkout GitHub Action'
         uses: actions/checkout@v4
-
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_24C65484B1E34656B2DA01F06DD94E51 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_25339433CE2E451E8B4EAE93D48870B0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_347192713AD646018D2785070041591F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5B7262379C714FDD8F543FCDB4CD09E0 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_14768B6F7A154A4E80DAC92C45C70B6C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6B331574B8904D9DADE2037DD9BB0B68 }}
 
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
@@ -37,3 +37,4 @@ jobs:
           app-name: 'githubapp'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          
