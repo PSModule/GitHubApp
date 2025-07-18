@@ -18,3 +18,6 @@ Write-Host "$($TriggerMetadata | ConvertTo-Json -Depth 10 -Compress)"
 
 Write-Host 'PSVersionTable'
 Write-Host "$($PSVersionTable | Out-String)"
+
+Write-Host 'AzContext'
+Write-Host "$(Get-AzContext | Format-List | Out-String)"
