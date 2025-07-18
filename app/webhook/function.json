@@ -1,0 +1,26 @@
+{
+    "scriptFile": "main.ps1",
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "Request",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "type": "eventgrid",
+            "name": "eventgrid",
+            "direction": "out",
+            "connection": "eventgridconnection"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "Response"
+        }
+    ]
+}
