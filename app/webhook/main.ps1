@@ -1,30 +1,33 @@
 using namespace System.Net
 
 param(
+    # The HTTP request context.
+    # https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-powershell?tabs=portal#request-object
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads#delivery-headers
     [Parameter()]
-    [Microsoft.Azure.Functions.PowerShellWorker.HttpRequestContext] $Request
+    [HttpRequestContext] $Request
 )
 
-Write-Debug ($request | ConvertTo-Json)
 $contentType = $Request.Headers.'content-type'
 if ($contentType -ne 'application/json') {
     Write-Error 'Content type is not application/json.'
     Push-OutputBinding -Name Response -Value (
         [HttpResponseContext]@{
-            StatusCode  = [int][HttpStatusCode]::UnsupportedMediaType
-            ContentType = 'application/json'
-            Headers     = @{
-                'Content-Type' = 'application/json'
-            }
-            Body        = @{
-                Status  = [string][HttpStatusCode]::UnsupportedMediaType
-                Message = 'Content type is not application/json.'
-                
-            }
+            StatusCode = [int][HttpStatusCode]::UnsupportedMediaType
         }
     )
     return
 }
+
+# if (-not (Test-GitHubWebhookSignature -Request $Request -Secret 'qazzaq')) {
+#     Write-Error 'Invalid signature.'
+#     Push-OutputBinding -Name Response -Value (
+#         [HttpResponseContext]@{
+#             StatusCode = [int][HttpStatusCode]::Unauthorized
+#         }
+#     )
+#     return
+# }
 
 $source = $Request.Headers.'X-Forwarded-For'
 $eventType = $Request.Headers.'X-GitHub-Event'
@@ -82,8 +85,7 @@ if ($eventType -in $supportedEvents -and $eventAction -in $supportedActions) {
     }
 } else {
     Write-Information 'Ok, but event and action was filtered out.'
-    Push-OutputBinding -Name Response -Value (
-        [HttpResponseContext]@{
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
             StatusCode = [int][HttpStatusCode]::OK
             Body       = @{
                 Status      = [string][HttpStatusCode]::OK
@@ -96,4 +98,3 @@ if ($eventType -in $supportedEvents -and $eventAction -in $supportedActions) {
         }
     )
 }
-

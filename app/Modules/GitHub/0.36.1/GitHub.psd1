@@ -1,11 +1,11 @@
 ﻿@{
     RootModule            = 'GitHub.psm1'
-    ModuleVersion         = '0.36.0'
+    ModuleVersion         = '0.36.1'
     CompatiblePSEditions  = @(
         'Core'
         'Desktop'
     )
-    GUID                  = '200c3c9a-b6a4-418f-972c-2ab11cf5b351'
+    GUID                  = '5ae75f66-b635-40d2-954d-aabb9fa18472'
     Author                = 'PSModule'
     CompanyName           = 'PSModule'
     Copyright             = '(c) 2025 PSModule. All rights reserved.'
@@ -19,7 +19,7 @@
         }
         @{
             ModuleName      = 'Context'
-            RequiredVersion = '8.1.0'
+            RequiredVersion = '8.1.1'
         }
         @{
             ModuleName      = 'Hashtable'
@@ -347,7 +347,6 @@
             LicenseUri = 'https://github.com/PSModule/GitHub/blob/main/LICENSE'
             ProjectUri = 'https://github.com/PSModule/GitHub'
             IconUri    = 'https://raw.githubusercontent.com/PSModule/GitHub/main/icon/icon.png'
-            Prerelease = 'kvSigning001'
         }
     }
 }

@@ -1,14 +1,16 @@
 using namespace System.Net
 
 param(
-    # The HTTP request context
+    # The HTTP request context.
+    # https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-powershell?tabs=portal#request-object
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads#delivery-headers
     [Parameter()]
     [HttpRequestContext] $Request,
 
     # Metadata about the trigger
     # This can include information like the function name, invocation ID, etc.
     [Parameter()]
-    [hashtable] $TriggerMetadata
+    [Hashtable] $TriggerMetadata
 )
 
 Write-Information 'Request'

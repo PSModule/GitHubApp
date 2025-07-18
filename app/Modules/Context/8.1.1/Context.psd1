@@ -1,11 +1,11 @@
 ﻿@{
     RootModule            = 'Context.psm1'
-    ModuleVersion         = '8.1.0'
+    ModuleVersion         = '8.1.1'
     CompatiblePSEditions  = @(
         'Core'
         'Desktop'
     )
-    GUID                  = '9592d965-6584-4d88-b0ce-4eddccd82b0d'
+    GUID                  = 'a6865f6c-b69e-43f1-bb83-46a8e0ef5462'
     Author                = 'PSModule'
     CompanyName           = 'PSModule'
     Copyright             = '(c) 2025 PSModule. All rights reserved.'

@@ -12,12 +12,6 @@
             ]
         },
         {
-            "type": "eventgrid",
-            "name": "eventgrid",
-            "direction": "out",
-            "connection": "eventgridconnection"
-        },
-        {
             "type": "http",
             "direction": "out",
             "name": "Response"
