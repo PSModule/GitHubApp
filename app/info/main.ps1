@@ -21,3 +21,10 @@ Write-Host "$($PSVersionTable | Out-String)"
 
 Write-Host 'AzContext'
 Write-Host "$(Get-AzContext | Format-List | Out-String)"
+
+Write-Host 'GitHubContext'
+Write-Host "$(Get-GitHubContext | Format-List | Out-String)"
+
+Write-Host 'GitHubConfig'
+Write-Host "$(Get-GitHubConfig | Format-List | Out-String)"
+
