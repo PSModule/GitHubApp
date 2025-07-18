@@ -30,4 +30,3 @@ Write-Information "$(Get-GitHubContext | Select-Object * | Format-List | Out-Str
 
 Write-Information 'GitHubConfig'
 Write-Information "$(Get-GitHubConfig | Format-List | Out-String)"
-
