@@ -33608,7 +33608,7 @@ Write-Debug "[$scriptName] - [variables] - [private] - Processing folder"
 #region    [variables] - [private] - [GitHub]
 Write-Debug "[$scriptName] - [variables] - [private] - [GitHub] - Importing"
 $script:IsGitHubActions = $env:GITHUB_ACTIONS -eq 'true'
-$script:IsFunctionApp = -not [string]::IsNullOrEmpty($env:WEBSITE_PLATFORM_VERSION)
+$script:IsFunctionApp = $env:FUNCTIONS_WORKER_RUNTIME -eq 'powershell'
 $script:IsLocal = -not ($script:IsGitHubActions -or $script:IsFunctionApp)
 $script:GitHub = [pscustomobject]@{
     ContextVault       = 'PSModule.GitHub'

@@ -9,12 +9,10 @@ param(
 )
 
 Write-Information 'Request'
-Write-Information "$($Request | Get-Member)"
-Write-Information "$($Request | ConvertTo-Json -Depth 10 -Compress)"
+Write-Information "$($Request | ConvertTo-Json -Depth 10)"
 
 Write-Information 'TriggerMetadata'
-Write-Information "$($TriggerMetadata | Get-Member)"
-Write-Information "$($TriggerMetadata | ConvertTo-Json -Depth 10 -Compress)"
+Write-Information "$($TriggerMetadata | ConvertTo-Json -Depth 10)"
 
 Write-Information 'PSVersionTable'
 Write-Information "$($PSVersionTable | Out-String)"
