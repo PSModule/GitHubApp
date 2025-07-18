@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+    <Type>
+        <Name>GitHubOrganization</Name>
+        <Members>
+            <AliasProperty>
+                <Name>Organization</Name>
+                <ReferencedMemberName>Name</ReferencedMemberName>
+            </AliasProperty>
+        </Members>
+    </Type>
+</Types>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+    <Type>
+        <Name>GitHubUser</Name>
+        <Members>
+            <AliasProperty>
+                <Name>User</Name>
+                <ReferencedMemberName>Name</ReferencedMemberName>
+            </AliasProperty>
+            <AliasProperty>
+                <Name>Bio</Name>
+                <ReferencedMemberName>Description</ReferencedMemberName>
+            </AliasProperty>
+            <AliasProperty>
+                <Name>Blog</Name>
+                <ReferencedMemberName>Website</ReferencedMemberName>
+            </AliasProperty>
+        </Members>
+    </Type>
+</Types>

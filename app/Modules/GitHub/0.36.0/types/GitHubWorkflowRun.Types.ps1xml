@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Types>
+    <Type>
+        <Name>GitHubWorkflowRun</Name>
+        <Members>
+            <AliasProperty>
+                <Name>WorkflowRun</Name>
+                <ReferencedMemberName>ID</ReferencedMemberName>
+            </AliasProperty>
+        </Members>
+    </Type>
+</Types>
