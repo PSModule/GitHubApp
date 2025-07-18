@@ -8,23 +8,26 @@ param(
     $TriggerMetadata
 )
 
-Write-Host 'Request'
-Write-Host "$($Request | Get-Member)"
-Write-Host "$($Request | ConvertTo-Json -Depth 10 -Compress)"
+Write-Information 'Request'
+Write-Information "$($Request | Get-Member)"
+Write-Information "$($Request | ConvertTo-Json -Depth 10 -Compress)"
 
-Write-Host 'TriggerMetadata'
-Write-Host "$($TriggerMetadata | Get-Member)"
-Write-Host "$($TriggerMetadata | ConvertTo-Json -Depth 10 -Compress)"
+Write-Information 'TriggerMetadata'
+Write-Information "$($TriggerMetadata | Get-Member)"
+Write-Information "$($TriggerMetadata | ConvertTo-Json -Depth 10 -Compress)"
 
-Write-Host 'PSVersionTable'
-Write-Host "$($PSVersionTable | Out-String)"
+Write-Information 'PSVersionTable'
+Write-Information "$($PSVersionTable | Out-String)"
 
-Write-Host 'AzContext'
-Write-Host "$(Get-AzContext | Format-List | Out-String)"
+Write-Information 'Environment variables'
+Write-Information "$(Get-ChildItem -Path Env: | Format-Table -Property Name, Value | Out-String)"
 
-Write-Host 'GitHubContext'
-Write-Host "$(Get-GitHubContext | Format-List | Out-String)"
+Write-Information 'AzContext'
+Write-Information "$(Get-AzContext | Format-List | Out-String)"
 
-Write-Host 'GitHubConfig'
-Write-Host "$(Get-GitHubConfig | Format-List | Out-String)"
+Write-Information 'GitHubContext'
+Write-Information "$(Get-GitHubContext | Format-List | Out-String)"
+
+Write-Information 'GitHubConfig'
+Write-Information "$(Get-GitHubConfig | Format-List | Out-String)"
 
