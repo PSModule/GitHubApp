@@ -22,7 +22,7 @@ Write-Information 'PSVersionTable'
 Write-Information "$($PSVersionTable | Out-String)"
 
 Write-Information 'Environment variables'
-Write-Information "$(Get-ChildItem -Path Env: | Format-Table -Property Name, Value -AutoSize | Out-String)"
+Write-Information "$(Get-ChildItem -Path Env: | Out-String)"
 
 Write-Information 'AzContext'
 Write-Information "$(Get-AzContext | Format-List | Out-String)"
