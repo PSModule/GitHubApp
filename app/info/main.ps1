@@ -28,7 +28,7 @@ Get-ChildItem -Path Env: | ForEach-Object { $envHash[$_.Name] = $_.Value }
 Write-Information "$([PSCustomObject]$envHash | Format-List | Out-String)"
 
 Write-Information 'AzContext'
-Write-Information "$(Get-AzContext -DefaultProfile | Format-List | Out-String)"
+Write-Information "$(Get-AzContext | Format-List | Out-String)"
 
 Write-Information 'AzConfig'
 Write-Information "$(Get-AzConfig | Format-List | Out-String)"
